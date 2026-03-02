@@ -1,0 +1,17 @@
+# --- Java Bytecode ---
+*.class
+bin/
+out/
+
+# --- VS Code Settings ---
+.vscode/
+.project
+.classpath
+.settings/
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+
+# --- JavaFX / Runtime (if applicable) ---
+*.log
