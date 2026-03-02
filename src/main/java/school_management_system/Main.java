@@ -1,5 +1,5 @@
 
-package schoolManagementSystem;
+package school_management_system;
 
 import java.util.ArrayList;
 

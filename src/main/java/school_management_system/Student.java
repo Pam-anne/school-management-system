@@ -1,4 +1,4 @@
-package schoolManagementSystem;
+package school_management_system;
 
 /**
  * This class is created to keep record of student's name, id, grade, total fee,

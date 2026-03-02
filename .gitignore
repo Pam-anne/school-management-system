@@ -1,3 +1,13 @@
+# --- Maven ---
+# Ignore the Maven build folder
+target/
+
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
 # --- Java Bytecode ---
 *.class
 bin/
@@ -8,10 +18,8 @@ out/
 .project
 .classpath
 .settings/
+.factorypath
 
 # --- OS Generated Files ---
 .DS_Store
 Thumbs.db
-
-# --- JavaFX / Runtime (if applicable) ---
-*.log

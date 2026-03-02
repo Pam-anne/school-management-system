@@ -1,4 +1,4 @@
-package schoolManagementSystem;
+package school_management_system;
 
 /**
  * This class is created to keep the record of teacher's name, id, salary and
