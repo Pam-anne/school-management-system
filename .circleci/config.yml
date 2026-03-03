@@ -39,21 +39,20 @@ jobs:
           destination: test-reports
       
   
-  deploy:
+  package:
     docker:
       - image: cimg/openjdk:21.0
     steps:
       - attach_workspace:
           at: .
       - run:
-          name: Deploy Project
+          name: Package Project
           command: |
-            echo "Deploying Project Version 2.1"
-            # Example: create a JAR and move to deployment directory
+            echo "Packaging Project Version 2.1"
             mvn package
             mkdir -p ~/deployments
             cp target/*.jar ~/deployments/
-            echo "Deployment completed"
+            echo "Package completed"
 
         # Store the built .jar as an artifact
       - store_artifacts:
@@ -68,6 +67,6 @@ workflows:
       - test:
           requires:
             - build # This ensures 'test' waits for 'build' to finish successfully   
-      - deploy:
+      - package:
           requires:
             - test
