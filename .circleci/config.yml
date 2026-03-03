@@ -52,8 +52,7 @@ workflows:
       - build
       - test:
           requires:
-            - build # This ensures 'test' waits for 'build' to finish successfully
-      
+            - build # This ensures 'test' waits for 'build' to finish successfully   
       - deploy:
           requires:
-            -test
+            - test
