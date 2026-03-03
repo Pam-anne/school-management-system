@@ -16,6 +16,11 @@ jobs:
           root: .
           paths:
             - .
+      # Store compiled .class files as artifacts
+      - store-artifacts:
+          path: target/classes
+          destinantion:compiled-classes
+
 
   test:
     docker:
@@ -27,6 +32,11 @@ jobs:
       - run:
           name: Run JUnit Tests
           command: mvn test
+      
+       # Store test reports
+      - store_artifacts:
+          path: target/surefire-reports
+          destination: test-reports
       
   
   deploy:
@@ -44,6 +54,11 @@ jobs:
             mkdir -p ~/deployments
             cp target/*.jar ~/deployments/
             echo "Deployment completed"
+
+        # Store the built .jar as an artifact
+      - store_artifacts:
+          path: ~/deployments
+          destination: jar-files
 
 # 2. Orchestrate them in a Workflow
 workflows:
