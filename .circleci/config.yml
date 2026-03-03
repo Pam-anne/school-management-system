@@ -19,7 +19,7 @@ jobs:
       # Store compiled .class files as artifacts
       - store-artifacts:
           path: target/classes
-          destinantion:compiled-classes
+          destination: compiled-classes
 
 
   test:
