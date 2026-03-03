@@ -17,7 +17,7 @@ jobs:
           paths:
             - .
       # Store compiled .class files as artifacts
-      - store-artifacts:
+      - store_artifacts:
           path: target/classes
           destination: compiled-classes
 
