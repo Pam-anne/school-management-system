@@ -27,6 +27,23 @@ jobs:
       - run:
           name: Run JUnit Tests
           command: mvn test
+      
+  
+  deploy:
+    docker:
+      - image: cimg/openjdk:21.0
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy Project
+          command: |
+            echo "Deploying Project Version 2.1"
+            # Example: create a JAR and move to deployment directory
+            mvn package
+            mkdir -p ~/deployments
+            cp target/*.jar ~/deployments/
+            echo "Deployment completed"
 
 # 2. Orchestrate them in a Workflow
 workflows:
@@ -36,3 +53,7 @@ workflows:
       - test:
           requires:
             - build # This ensures 'test' waits for 'build' to finish successfully
+      
+      - deploy:
+          requires:
+            -test
